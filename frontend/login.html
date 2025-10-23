@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - AgroBio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-leaf"></i>
+                <span>AgroBio</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Início</a>
+                <a href="index.html#about">Sobre</a>
+                <a href="index.html#how-it-works">Como Funciona</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <h1>Entrar no AgroBio</h1>
+                        <p>Faça login para acessar sua conta</p>
+                    </div>
+
+                    <form id="loginForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Senha</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="remember">
+                                <span class="checkmark"></span>
+                                Lembrar de mim
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large btn-full">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Entrar
+                        </button>
+                    </form>
+
+                    <div class="auth-footer">
+                        <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se aqui</a></p>
+                        <p><a href="#" onclick="showForgotPassword()">Esqueceu sua senha?</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AgroBio</h3>
+                    <p>Conectando produtores para um futuro sustentável.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links Úteis</h3>
+                    <ul>
+                        <li><a href="index.html#about">Sobre</a></li>
+                        <li><a href="index.html#how-it-works">Como Funciona</a></li>
+                        <li><a href="academico-proposta.html">Proposta Acadêmica</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

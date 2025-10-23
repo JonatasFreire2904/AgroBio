@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AgroBio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-leaf"></i>
+                <span>AgroBio</span>
+            </div>
+            <div class="nav-links">
+                <a href="dashboard.html" class="active">Dashboard</a>
+                <a href="ofertas-disponiveis.html">Ofertas</a>
+                <a href="negociacoes.html">Negociações</a>
+            </div>
+            <div class="nav-auth">
+                <div class="user-menu">
+                    <span id="userName">Usuário</span>
+                    <i class="fas fa-user-circle"></i>
+                    <div class="user-dropdown">
+                        <a href="#" id="profileLink">Meu Perfil</a>
+                        <a href="#" onclick="logout()">Sair</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1>Dashboard</h1>
+                <p id="welcomeMessage">Bem-vindo ao AgroBio!</p>
+            </div>
+
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalOffers">0</h3>
+                        <p>Ofertas Ativas</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalNegotiations">0</h3>
+                        <p>Negociações</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalRevenue">R$ 0</h3>
+                        <p>Receita Gerada</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalConnections">0</h3>
+                        <p>Conexões</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-content">
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Ofertas Recentes</h3>
+                            <button class="btn btn-sm btn-primary" onclick="showCreateOfferModal()">
+                                <i class="fas fa-plus"></i>
+                                Nova Oferta
+                            </button>
+                        </div>
+                        <div class="card-body" id="recentOffers">
+                            <p class="text-center">Carregando ofertas...</p>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3>Negociações Ativas</h3>
+                            <button class="btn btn-sm btn-outline" onclick="loadUserNegotiations()">
+                                <i class="fas fa-refresh"></i>
+                                Atualizar
+                            </button>
+                        </div>
+                        <div class="card-body" id="activeNegotiations">
+                            <p class="text-center">Carregando negociações...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Atividade Recente</h3>
+                    </div>
+                    <div class="card-body" id="recentActivity">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-plus-circle"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Nova oferta criada</h4>
+                                <p>Palha de Cana-de-Açúcar - 50 toneladas</p>
+                                <span class="activity-time">Há 2 horas</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Nova negociação iniciada</h4>
+                                <p>BioEnergia Ltda interessada em sua oferta</p>
+                                <span class="activity-time">Há 4 horas</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Negociação concluída</h4>
+                                <p>Venda de 30 toneladas de bagasso</p>
+                                <span class="activity-time">Ontem</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Create Offer Modal -->
+    <div id="createOfferModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('createOfferModal')">&times;</span>
+            <h2>Nova Oferta de Resíduo</h2>
+            <form id="createOfferForm">
+                <div class="form-group">
+                    <label for="offerTitle">Título da Oferta *</label>
+                    <input type="text" id="offerTitle" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="offerDescription">Descrição</label>
+                    <textarea id="offerDescription" name="description" rows="4"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="offerQuantity">Quantidade</label>
+                        <input type="number" id="offerQuantity" name="quantity" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="offerUnit">Unidade</label>
+                        <select id="offerUnit" name="unit">
+                            <option value="toneladas">Toneladas</option>
+                            <option value="kg">Quilogramas</option>
+                            <option value="litros">Litros</option>
+                            <option value="metros">Metros Cúbicos</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="offerCity">Cidade</label>
+                        <input type="text" id="offerCity" name="location_city">
+                    </div>
+                    <div class="form-group">
+                        <label for="offerState">Estado</label>
+                        <input type="text" id="offerState" name="location_state">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Criar Oferta</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

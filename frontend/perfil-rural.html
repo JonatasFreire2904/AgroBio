@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - Produtor Rural - AgroBio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-leaf"></i>
+                <span>AgroBio</span>
+            </div>
+            <div class="nav-links">
+                <a href="dashboard.html" class="active">Dashboard</a>
+                <a href="minhas-ofertas.html">Minhas Ofertas</a>
+                <a href="negociacoes.html">Negociações</a>
+            </div>
+            <div class="nav-auth">
+                <div class="user-menu">
+                    <span id="userName">João Silva</span>
+                    <i class="fas fa-user-circle"></i>
+                    <div class="user-dropdown">
+                        <a href="perfil-rural.html">Meu Perfil</a>
+                        <a href="#" onclick="logout()">Sair</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <i class="fas fa-tractor"></i>
+                </div>
+                <div class="profile-info">
+                    <h1 id="profileName">Carregando...</h1>
+                    <p class="profile-role">🌾 Produtor Rural</p>
+                    <p class="profile-location">Carregando...</p>
+                </div>
+                <div class="profile-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="totalOffers">0</span>
+                        <span class="stat-label">Ofertas Ativas</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="totalNegotiations">0</span>
+                        <span class="stat-label">Negociações</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="totalRevenue">R$ 0</span>
+                        <span class="stat-label">Receita Gerada</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-content">
+                <div class="profile-tabs">
+                    <button class="tab-btn active" onclick="showTab('overview')">Visão Geral</button>
+                    <button class="tab-btn" onclick="showTab('offers')">Minhas Ofertas</button>
+                    <button class="tab-btn" onclick="showTab('negotiations')">Negociações</button>
+                    <button class="tab-btn" onclick="showTab('settings')">Configurações</button>
+                </div>
+
+                <!-- Overview Tab -->
+                <div id="overview" class="tab-content active">
+                    <div class="dashboard-grid">
+                        <div class="dashboard-card">
+                            <h3>Ofertas Recentes</h3>
+                            <div class="offer-list" id="recentOffersList">
+                                <p class="text-center">Carregando suas ofertas...</p>
+                            </div>
+                            <button class="btn btn-primary btn-full" onclick="showTab('offers')">
+                                <i class="fas fa-plus"></i>
+                                Nova Oferta
+                            </button>
+                        </div>
+
+                        <div class="dashboard-card">
+                            <h3>Negociações Ativas</h3>
+                            <div class="negotiation-list" id="recentNegotiationsList">
+                                <p class="text-center">Carregando suas negociações...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Offers Tab -->
+                <div id="offers" class="tab-content">
+                    <div class="offers-header">
+                        <h2>Minhas Ofertas</h2>
+                        <button class="btn btn-primary" onclick="showCreateOfferModal()">
+                            <i class="fas fa-plus"></i>
+                            Nova Oferta
+                        </button>
+                    </div>
+                    <div class="offers-grid" id="offersGrid">
+                        <!-- Offers will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Negotiations Tab -->
+                <div id="negotiations" class="tab-content">
+                    <h2>Negociações</h2>
+                    <div class="negotiations-list" id="negotiationsList">
+                        <!-- Negotiations will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Settings Tab -->
+                <div id="settings" class="tab-content">
+                    <h2>Configurações do Perfil</h2>
+                    <form id="profileForm" class="profile-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="profileName">Nome Completo</label>
+                                <input type="text" id="profileName" name="name" value="João Silva">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="profileEmail">Email</label>
+                                <input type="email" id="profileEmail" name="email" value="joao@email.com" readonly>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="profileCity">Cidade</label>
+                                <input type="text" id="profileCity" name="city" value="São Paulo">
+                            </div>
+                            <div class="form-group">
+                                <label for="profileState">Estado</label>
+                                <input type="text" id="profileState" name="state" value="SP">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Create Offer Modal -->
+    <div id="createOfferModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('createOfferModal')">&times;</span>
+            <h2>Nova Oferta de Resíduo</h2>
+            <form id="createOfferForm">
+                <div class="form-group">
+                    <label for="offerTitle">Título da Oferta *</label>
+                    <input type="text" id="offerTitle" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="offerDescription">Descrição</label>
+                    <textarea id="offerDescription" name="description" rows="4"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="offerQuantity">Quantidade</label>
+                        <input type="number" id="offerQuantity" name="quantity" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="offerUnit">Unidade</label>
+                        <select id="offerUnit" name="unit">
+                            <option value="toneladas">Toneladas</option>
+                            <option value="kg">Quilogramas</option>
+                            <option value="litros">Litros</option>
+                            <option value="metros">Metros Cúbicos</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="offerCity">Cidade</label>
+                        <input type="text" id="offerCity" name="location_city">
+                    </div>
+                    <div class="form-group">
+                        <label for="offerState">Estado</label>
+                        <input type="text" id="offerState" name="location_state">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Criar Oferta</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

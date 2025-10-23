@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroBio - Conectando Produtores</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-leaf"></i>
+                <span>AgroBio</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Início</a>
+                <a href="#about">Sobre</a>
+                <a href="#how-it-works">Como Funciona</a>
+                <a href="#contact">Contato</a>
+            </div>
+            <div class="nav-auth">
+                <button class="btn btn-outline" onclick="showLogin()">Entrar</button>
+                <button class="btn btn-primary" onclick="showRegister()">Cadastrar</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Conectando Produtores Rurais e de Biocombustível</h1>
+            <p>Uma plataforma inovadora que facilita a troca de resíduos agrícolas por biocombustíveis, promovendo sustentabilidade e economia circular.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary btn-large" onclick="showRegister()">
+                    <i class="fas fa-user-plus"></i>
+                    Começar Agora
+                </button>
+                <button class="btn btn-outline btn-large" onclick="scrollToSection('how-it-works')">
+                    <i class="fas fa-play"></i>
+                    Como Funciona
+                </button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="hero-cards">
+                <div class="card rural-card">
+                    <i class="fas fa-tractor"></i>
+                    <h3>Produtor Rural</h3>
+                    <p>Ofereça seus resíduos agrícolas</p>
+                </div>
+                <div class="card bio-card">
+                    <i class="fas fa-recycle"></i>
+                    <h3>Produtor de Biocombustível</h3>
+                    <p>Transforme resíduos em energia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Sobre o AgroBio</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Sustentabilidade</h3>
+                    <p>Promovemos a economia circular, transformando resíduos em recursos valiosos.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Conectividade</h3>
+                    <p>Ligamos produtores rurais diretamente com produtores de biocombustível.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Economia</h3>
+                    <p>Gere renda extra com seus resíduos agrícolas de forma sustentável.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2>Como Funciona</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Cadastre-se</h3>
+                        <p>Faça seu cadastro como produtor rural ou de biocombustível</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Publique Ofertas</h3>
+                        <p>Produtores rurais publicam ofertas de resíduos disponíveis</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Negocie</h3>
+                        <p>Produtores de biocombustível entram em contato para negociar</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Feche o Negócio</h3>
+                        <p>Combine a entrega e transforme resíduos em valor</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Entre em Contato</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>contato@agrobio.com.br</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>(11) 99999-9999</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>São Paulo, SP</span>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Seu nome" required>
+                        <input type="email" placeholder="Seu email" required>
+                        <textarea placeholder="Sua mensagem" rows="5" required></textarea>
+                        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AgroBio</h3>
+                    <p>Conectando produtores para um futuro sustentável.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links Úteis</h3>
+                    <ul>
+                        <li><a href="#about">Sobre</a></li>
+                        <li><a href="#how-it-works">Como Funciona</a></li>
+                        <li><a href="academico-proposta.html">Proposta Acadêmica</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>contato@agrobio.com.br</p>
+                    <p>(11) 99999-9999</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AgroBio. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Entrar</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Senha</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Entrar</button>
+            </form>
+            <p class="modal-switch">
+                Não tem conta? <a href="#" onclick="switchModal('loginModal', 'registerModal')">Cadastre-se</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            <h2>Cadastrar</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Nome Completo</label>
+                    <input type="text" id="registerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Senha</label>
+                    <input type="password" id="registerPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerRole">Tipo de Produtor</label>
+                    <select id="registerRole" required>
+                        <option value="">Selecione...</option>
+                        <option value="rural">Produtor Rural</option>
+                        <option value="biocombustivel">Produtor de Biocombustível</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="registerCity">Cidade</label>
+                    <input type="text" id="registerCity">
+                </div>
+                <div class="form-group">
+                    <label for="registerState">Estado</label>
+                    <input type="text" id="registerState">
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Cadastrar</button>
+            </form>
+            <p class="modal-switch">
+                Já tem conta? <a href="#" onclick="switchModal('registerModal', 'loginModal')">Entre aqui</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
